@@ -26,6 +26,19 @@ const app = express();
 app.get('/:pheptinh/:so_a/:so_b',(req,res)=>{
     const { pheptinh, so_a, so_b } = req.params
     
+    if(isNaN(so_a) || isNaN(so_b))
+        res.send({error: 'Invalid parameter(s)'})
+    
+    try {
+        const test = new Pheptinh(pheptinh,so_a, so_b)
+        res.send({
+            pheptinh, so_a, so_b,
+            result: test.getResult()
+        })
+    }
+    catch (error) {
+        res.send({error: error.message})
+    }
 })
 class Pheptinh{
     constructor(pt, a, b){
@@ -37,8 +50,8 @@ class Pheptinh{
         if(this.pt=='cong') return '+';
         if(this.pt=='tru') return '-';
         if(this.pt=='nhan') return '*';
-        if(this.pt=='chia') return '/';
-        if(this.pt=='chiadu') return '%';
+        if(this.pt=='chia' && this.b!=0) return '/';
+        if(this.pt=='chiadu'&& this.b!=0) return '%';
         throw new Error('Math Error!');
     }
     getResult(){
@@ -47,13 +60,7 @@ class Pheptinh{
         return eval(bieuthuc)
     }
 }
-try {
-    const test = new Pheptinh('a',2,3)
-    console.log(test.getResult())
-}
-catch (error) {
-    console.log(error.message)
-}
+
 
 
 
