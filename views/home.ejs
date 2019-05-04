@@ -4,16 +4,9 @@
         <title>Home</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="./css/style.css">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
     </head>
-    <style>
-        /* CSS */
-        .red{
-            color:red
-        }
-        .green{
-            color:green
-        }
-    </style>
     <body>
         <%-include('layout/header.ejs')%>
         <h3>Hello <%-name%></h3>
@@ -25,9 +18,11 @@
         <% arrPerson.forEach(person=>{%>
             <p class='<%= person.age<10 ?  "green" : "red"%>'> 
                 Name: <%=person.name%> 
-                - Age:  <%=person.age%>
+                - Age: <%=person.age%>
             </p>
         <% })%>
+
+        <img width="50%" src="images/a.JPG">
         
     </body>
 </html>
