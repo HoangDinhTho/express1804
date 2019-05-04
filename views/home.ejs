@@ -5,13 +5,41 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
     </head>
+    <style>
+        /* CSS */
+        .red{
+            color:red
+        }
+        .green{
+            color:green
+        }
+    </style>
     <body>
         <%-include('layout/header.ejs')%>
         <h3>Hello <%-name%></h3>
         <h3>Hello <%=name%></h3>
         <b>
-            <% let a = 1; %>
+            <% let a = 1;%>
             <%= a%>
         </b>
+        <% arrPerson.forEach(person=>{
+            if(person.age<10){
+        %>
+            <p class="green"> 
+                Name: <%=person.name%> 
+                - Age:  <%=person.age%>
+            </p>
+        <% 
+            }
+            else{
+        %>
+               <p class="red"> 
+                    Name: <%=person.name%> 
+                    - Age:  <%=person.age%>
+                </p>
+        <% 
+            }
+        })%>
+        
     </body>
 </html>
