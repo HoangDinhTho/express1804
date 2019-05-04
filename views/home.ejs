@@ -22,24 +22,12 @@
             <% let a = 1;%>
             <%= a%>
         </b>
-        <% arrPerson.forEach(person=>{
-            if(person.age<10){
-        %>
-            <p class="green"> 
+        <% arrPerson.forEach(person=>{%>
+            <p class='<%= person.age<10 ?  "green" : "red"%>'> 
                 Name: <%=person.name%> 
                 - Age:  <%=person.age%>
             </p>
-        <% 
-            }
-            else{
-        %>
-               <p class="red"> 
-                    Name: <%=person.name%> 
-                    - Age:  <%=person.age%>
-                </p>
-        <% 
-            }
-        })%>
+        <% })%>
         
     </body>
 </html>

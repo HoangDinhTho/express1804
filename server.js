@@ -10,7 +10,7 @@ app.get('/',(req,res)=>{
         {name: 'Nam', age: 11},
         {name: 'Nu', age: 9}
     ];
-    
+    // person.age<10 ?  "green" : "red"
     res.render('home',{ name, arrPerson });
 })
 app.listen(3000, ()=>console.log('Server start on port 3000'))
