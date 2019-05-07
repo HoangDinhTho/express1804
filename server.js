@@ -16,5 +16,6 @@ app.get('/',(req,res)=>{
 })
 app.listen(3000, ()=>console.log('Server start on port 3000'))
 
-// email
-// password
+app.get('/signin',(req,res)=>{
+    res.render('signin');
+})
